@@ -1,4 +1,4 @@
-FROM openjdk:wodby/openjdk:17-alpine
+FROM eclipse-temurin:17-jdk-alpine
 EXPOSE 8089
 ADD http://localhost:8081/repository/maven-releases/tn/m104/rh/school/1.0.0/school-1.0.0.jar .
 ENTRYPOINT ["java","-jar","/school-1.0.0.jar"]
