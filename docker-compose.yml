@@ -28,12 +28,12 @@ services:
     tty: true
     
     app-school-frontend:
-       image: aaaa0000/schoolfront-image:1.0.0
-       restart: on-failure
-       ports:
-         -"8585:85"
-       depends_on:
-         -app-backend
+      image: aaaa0000/schoolfront-image:1.0.0
+      restart: on-failure
+      ports:
+        -"8585:85"
+      depends_on:
+        -app-backend
 
 volumes:
   db :
