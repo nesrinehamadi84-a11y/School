@@ -12,7 +12,7 @@ services:
       - db:/var/lib/postgres
   app-backend:
     depends_on:
-      - postgres
+      - postgresdb
     image: aaaa0000/school-image:1.0.0
     #build : ./
     restart: on-failure
