@@ -22,11 +22,18 @@ services:
         "spring.datasource.url"  : "jdbc:postgresql://postgresdb:5433/db-school",
         "spring.datasource.username" : "postgres",
         "spring.datasource.password" : "postgres",
-        "spring.datasource.driver-class-name" : "org.postgresql.Driver",
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     stdin_open: true
     tty: true
+    
+    app-school-frontend:
+       image: aaaa0000/schoolfront-image:1.0.0
+       restart: on-failure
+       ports:
+         -"8585:85"
+       depends_on:
+         -app-backend
 
 volumes:
   db :
