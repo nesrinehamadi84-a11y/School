@@ -31,7 +31,7 @@ services:
       image: aaaa0000/schoolfront-image:1.0.0
       restart: on-failure
       ports:
-        -"8585:85"
+        -8585:85
       depends_on:
         -app-backend
 
