@@ -1,3 +1,4 @@
+version: "3.8"
 services:
   postgresdb:
     image: postgres:18
@@ -8,32 +9,33 @@ services:
     ports:
       - 5433:5432
     volumes:
-      - db:/var/lib/postgres
+      - db:/var/lib/postgresql/data
+
   app-backend:
     depends_on:
       - postgresdb
     image: aaaa0000/school-image:1.0.0
-    #build : ./
     restart: on-failure
     ports:
       - 8089:8089
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:5433/db-school",
+        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:5432/db-school",
         "spring.datasource.username" : "postgres",
         "spring.datasource.password" : "postgres",
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     stdin_open: true
     tty: true
-    
+    # You could use a wait-for-it script or similar here if needed
+
   app-school-frontend:
     image: aaaa0000/schoolfront-image:1.0.0
     restart: on-failure
     ports:
-      -8585:85
+      - 8585:85
     depends_on:
-        -app-backend
+      - app-backend
 
 volumes:
-  db :
+  db:
