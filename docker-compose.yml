@@ -1,6 +1,6 @@
 services:
   postgresdb:
-    image: postgres:13
+    image: postgres
     container_name: LocalConnection
     environment:
       POSTGRES_USER: postgres
