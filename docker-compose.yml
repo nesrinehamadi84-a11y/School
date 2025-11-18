@@ -20,7 +20,7 @@ services:
       - 8089:8089
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:5432/db-school",
+        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:5433/db-school",
         "spring.datasource.username" : "postgres",
         "spring.datasource.password" : "postgres",
         "spring.jpa.hibernate.ddl-auto" : "update"
